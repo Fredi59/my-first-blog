@@ -26,9 +26,9 @@ SECRET_KEY = '+gr6kl0se+_g0j22z^3m@!0*%#c*hc^tv$gn(fg)59xgijs)f3'
 DEBUG = True
 
 # add allowed HOSTS
-ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com']
+ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com', 'fred59.pythonanywhere.common']
 # added APLA 20.03.2018 https://tutorial.djangogirls.org 'Your first Django project!'
-
+# apla 02.04.18 added 'fred59.pythonanywhere.com' as hosted webserver
 
 # Application definition
 
@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'blog'
+    'blog',     # added 'comma' after 'blog' apla 02.04.18
 ]
 
 MIDDLEWARE = [

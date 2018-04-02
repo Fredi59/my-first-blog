@@ -13,17 +13,21 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-# add some code from
+# add some code from apla 29.03.2018 django 1.18 ????
 # https://www.tutorialspoint.com/django/django_admin_interface.htm
 
 # from django.conf.urls import patterns, include, url # tutorialspoint
 # from django.conf.urls import include, url # tutorialspoint
 
 from django.contrib import admin
-from django.urls import path
-admin.autodiscover()  # tutorialspoint
+# from django.urls import path  # runs into PythonAnywhere erros
+from django.conf.urls import url       # apla 02.04.18 addded method conf
+from django.conf.urls import include   # conf
+# from django.conf.urls import patterns  # conf >> Django webserver errors
+# admin.autodiscover()  # tutorialspoint runs into errors PythonAnywhere
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    # url(r'^admin/', include(admin.site.urls)),  # tutorialspoint
+    # path('admin/', admin.site.urls), # runs into PythnAnywhere erros
+    url(r'^admin/', admin.site.urls),  # tutorialspoint >> include deleted
+    url(r'', include('blog.urls')),    # djangogirls tutorial
 ]

@@ -5,9 +5,9 @@
 # *.[oa]
 # *~
 # www.djangogirls.org tutorial 'Deploy!' apla 26.03.2018
-*~
+# *~
 *.pyc
 __pycache__
-db.sqlite3  # pythonAnywhere uses MySQL as database
-/static
+# db.sqlite3  # pythonAnywhere uses MySQL as database
+# /static
 .DS_Store
