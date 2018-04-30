@@ -6,24 +6,29 @@
 
 <html>
     <head>
-        <title> DjangoGirls Post_list </title>
+        <title> DjangoGirls Tutorial Post_list </title>
     </head>
 
     <body>
       <div>
-        <h1><p><a href="\"> My Post List ordered by latest </a></p></h1>
+        <h1><p><a href="\"> My Post List Post.objects.all() - no filter </a></p></h1>
       </div>
 
       <div>
-        <h2><p><a href=""> Post No 1 </a></p></h2>
-        <h2><p> author </p></h2>
-        <p> text </p>
-        <h4><p> created at </p></h4>
-        <h4><p> published at </p></h4>
+        <h2> The Post list as a simple Django QuerySet</h2>
+        <p> {{ posts }} </p>
       </div>
 
       <div>
-        <h1><p><a href=""> Post No 2 </a></p></h1>
+        <h2> The Post list as a list</h2>
+        {% for post in posts %}
+        <h2> {{ post.title }} </h2>
+        <p> {{ post.text }} </p>
+        {% endfor %}
+      </div>
+
+      <div>
+        <h1><p><a href=""> Title Post No X </a></p></h1>
         <h2><p> author </p></h2>
         <p> text </p>
         <h4><p> created at </p></h4>
