@@ -17,4 +17,6 @@ from   .  import views
 # instead of url() use path() see django doc 2.0.4 example 2.1.5
 urlpatterns = [
     url(r'^$', views.post_list, name='post_list'),
+    # added a new views callback function apla 01.05.2018
+    url(r'^$', views.post_list_filter, name='post_list_filter'),
 ]

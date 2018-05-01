@@ -6,33 +6,38 @@
 
 <html>
     <head>
-        <title> DjangoGirls Tutorial Post_list </title>
+      <!-- import Bootstrap as CSS framework to improve the look and feel -->
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+      <title> DjangoGirls Tutorial Post_list </title>
     </head>
 
     <body>
       <div>
-        <h1><p><a href="\"> My Post List Post.objects.all() - no filter </a></p></h1>
+        <h1><a href="\"> My Posts </a></h1>
       </div>
 
       <div>
-        <h2> The Post list as a simple Django QuerySet</h2>
+        <h2><a href=""> Posts as a simple Django QuerySet </a></h2>
         <p> {{ posts }} </p>
       </div>
 
       <div>
-        <h2> The Post list as a list</h2>
+        <h2><a href=""> Posts as a list of titles </a></h2>
         {% for post in posts %}
-        <h2> {{ post.title }} </h2>
-        <p> {{ post.text }} </p>
+        <h4> {{ post.title }} </h4>
+        <!-- <p> {{ post.text }} </p>  -->
         {% endfor %}
       </div>
 
       <div>
-        <h1><p><a href=""> Title Post No X </a></p></h1>
-        <h2><p> author </p></h2>
-        <p> text </p>
-        <h4><p> created at </p></h4>
-        <h4><p> published at </p></h4>
+        <h2><a href=""> Post details </a></h2>
+        {% for post1 in posts %}
+        <p>Title: {{ post1.title }}
+          Author: {{ post1.author }}
+          Created: {{ post1.created_date }}
+          Published: {{ post1.published_date }} </p>
+        {% endfor %}
       </div>
 
     </body>
