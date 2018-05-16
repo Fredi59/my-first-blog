@@ -1,0 +1,38 @@
+<!--
+# my first Django template as html file to list all posts
+# tutorial.djangogirls.org  'Introduction to HTML'
+# apla 15.04.2018 to render a filtered list apla 16.05.2018
+-->
+{% load staticfiles %}
+
+<html>
+    <head>
+      <!-- import Bootstrap as CSS framework to improve the look and feel -->
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+      <link rel="stylesheet" href="{% static 'css/blog.css' %}"></link>
+      <title> DjangoGirls Posts filtered </title>
+    </head>
+
+    <body>
+      <div>
+        <h1> My Posts filtered - a reference to DjangoGirls Tutorial </h1>
+      </div>
+
+      <div>
+        <h2><a href=""> Posts as a simple Django QuerySet </a></h2>
+        <p> 'post_list_filter' {{ post_list_filter }} </p>
+      </div>
+
+      <div>
+        <h1><a href=""> Posts filtered contains 'Django' as a list </a></h1>
+        {% for post2 in post_list_filter %}
+        <p><a href=""> Title: {{ post2.title }} </a>
+          Author: {{ post2.author }}
+          Created: {{ post2.created_date }}
+          Published: {{ post2.published_date }} </p>
+        {% endfor %}
+      </div>
+
+    </body>
+</html>

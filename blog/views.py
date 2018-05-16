@@ -22,13 +22,14 @@ def post_list(request):
 # a post_list function retrieving all Post objects and storing results in a variable
 # based on Django doc 2.0.4 example views 2.1.6 views
 def post_list_all(request):
-    a_list = Post.objects.all()  # save the Post objects  in a variable
-    context = {'post_list_all': a_list}
-    return render(request, 'blog/post_list.html', context)
+    post_list_all = Post.objects.all()  # save the Post objects  in a variable
+    # context = {'post_list_all': post_list_all}
+    # return render(request, 'blog/post_list.html', context)
+    return render(request, 'blog/post_list.html', {'post_list_all': post_list_all})
 
 # a post_list function filtering Post objects
 # based on Django doc 2.0.4 example views 2.1.6 views
 def post_list_filter(request):
     post_list_filter = Post.objects.filter(title__contains='Django')
-    context1 = {'post_list_filter': post_list_filter}
-    return render(request, 'blog/post_list.html', context1)
+    # context1 = {'post_list_filter_title': post_list_filter_title} # urls.py error 'no attribute'
+    return render(request, 'blog/post_list_filter.html', {'post_list_filter': post_list_filter})
