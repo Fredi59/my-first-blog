@@ -29,10 +29,11 @@
       <div class="post">
         <h1><a href=""> Posts 'filter contains 'Django'' as a list </a></h1>
         {% for post2 in post_list_filter %}
-        <p><a href=""> Title: {{ post2.title }} </a>
-          Author: {{ post2.author }}
-          Created: {{ post2.created_date }}
-          Published: {{ post2.published_date }} </p>
+        <p><a href=""><b> Title: {{ post2.title }} </b></a></p>
+        <p>  Author: {{ post2.author }}
+             Created: {{ post2.created_date }}
+             Published: {{ post2.published_date }} </p>
+        <p> {{ post2.text}} </p>
         {% endfor %}
       </div>
 

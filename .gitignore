@@ -9,5 +9,5 @@
 *.pyc
 __pycache__
 # db.sqlite3  # pythonAnywhere uses MySQL as database
-# /static
+/static
 .DS_Store

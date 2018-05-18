@@ -28,31 +28,18 @@
         <p><a href="blog/post_list_filter.html"> 'post_list_filtered as a Django Query Set' {{ post_list_filter }} </a></p>
       </div>
 
-      <div class="post">
-        <h1><a href=""> Posts and its Attributes </a></h1>
-        {% for post1 in posts %}
-        <p><a href=""> Title: {{ post1.title }} </a>
-          Author: {{ post1.author }}
-          Created: {{ post1.created_date }}
-          Published: {{ post1.published_date }} </p>
-        {% endfor %}
-      </div>
-
       <div>
         <h2><a href="blog/post_list_filter.html"> Posts filtered </a></h2>
-        {% for post2 in post_list_filter %}
-        <p><a href=""> Title: {{ post2.title }} </a>
-          Author: {{ post2.author }}
-          Created: {{ post2.created_date }}
-          Published: {{ post2.published_date }} </p>
-        {% endfor %}
       </div>
 
-      <div>
-        <h1><a href="">Posts as a list of titles and text </a></h1>
+      <div class="post">
+        <h1><a href="">Posts as a list of blog titles and text </a></h1>
         {% for post in posts %}
-        <h4><a href=""> {{ post.title }} </a></h4>
-        <!--  <p> {{ post.text }} </p>  -->
+        <p><b> {{ post.title }} </b></p>
+        <p> Author: {{ post.author }}
+            Created: {{ post.created_date }}
+            Published: {{ post.published_date }} </p>
+        <!--  <h4> {{ post.text }} </h4>  -->
         <p> {{ post.text }} </p>
         {% endfor %}
       </div>
