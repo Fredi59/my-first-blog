@@ -10,23 +10,26 @@
       <!-- import Bootstrap as CSS framework to improve the look and feel -->
       <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
       <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+      <!-- <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css"> -->
+      <!-- <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css"> -->
       <link rel="stylesheet" href="{% static 'css/blog.css' %}"></link>
+
       <title> DjangoGirls Posts </title>
     </head>
 
     <body>
-      <div>
+      <div class="page-header">
         <h1> My Posts - a reference to DjangoGirls Tutorial </h1>
       </div>
 
       <div>
-        <h2><a href=""> Posts as a simple Django QuerySet </a></h2>
+        <h1><a href=""> Posts as a simple Django QuerySet </a></h1>
         <p> All Post objects 'posts' {{ posts }} </p>
         <p><a href="blog/post_list_filter.html"> 'post_list_filtered as a Django Query Set' {{ post_list_filter }} </a></p>
       </div>
 
-      <div>
-        <h2><a href=""> Posts and its Attributes </a></h2>
+      <div class="post">
+        <h1><a href=""> Posts and its Attributes </a></h1>
         {% for post1 in posts %}
         <p><a href=""> Title: {{ post1.title }} </a>
           Author: {{ post1.author }}
@@ -48,7 +51,7 @@
       <div>
         <h1><a href="">Posts as a list of titles and text </a></h1>
         {% for post in posts %}
-        <h4> {{ post.title }} </h4>
+        <h4><a href=""> {{ post.title }} </a></h4>
         <!--  <p> {{ post.text }} </p>  -->
         <p> {{ post.text }} </p>
         {% endfor %}
