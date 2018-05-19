@@ -9,5 +9,5 @@
 *.pyc
 __pycache__
 # db.sqlite3  # pythonAnywhere uses MySQL as database
-/static
+# /static   # added 19.05.18 apla for deployment to pythonAnywhere.com
 .DS_Store

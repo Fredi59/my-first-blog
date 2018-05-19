@@ -26,7 +26,7 @@ SECRET_KEY = '+gr6kl0se+_g0j22z^3m@!0*%#c*hc^tv$gn(fg)59xgijs)f3'
 DEBUG = True
 
 # add allowed HOSTS
-ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com', 'fred59.pythonanywhere.common']
+ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com', 'fred59.pythonanywhere.com']
 # added APLA 20.03.2018 https://tutorial.djangogirls.org 'Your first Django project!'
 # apla 02.04.18 added 'fred59.pythonanywhere.com' as hosted webserver
 
@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles',
+    'django.contrib.staticfiles',  # necessary for bootstrap as frontend
     'blog',     # added 'comma' after 'blog' apla 02.04.18
 ]
 
@@ -121,5 +121,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
-# add new entry STATIC_URL
+# add new entry STATIC_URL  ; importnat for bootstrap and css
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')   # apla 20.03.2018
+STATICFILES_DIR = [
+    os.path.join(BASE_DIR, "static"),
+    "blog/static",
+    # added 19.05.18 apla http://quora.com/is-it-easy-to-integrate-bootstrap-with-django
+]

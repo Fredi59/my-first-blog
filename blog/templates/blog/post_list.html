@@ -7,12 +7,15 @@
 
 <html>
     <head>
-      <!-- import Bootstrap as CSS framework to improve the look and feel -->
+      <link rel="stylesheet" href="{% static 'css/blog.css' %}"></link>
+
+      <!-- import Bootstrap as CSS framework
+      to improve the look and feel from CDN (content delivery network) -->
       <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
       <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
       <!-- <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css"> -->
       <!-- <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css"> -->
-      <link rel="stylesheet" href="{% static 'css/blog.css' %}"></link>
+
 
       <title> DjangoGirls Posts </title>
     </head>
@@ -25,15 +28,19 @@
       <div>
         <h1><a href=""> Posts as a simple Django QuerySet </a></h1>
         <p> All Post objects 'posts' {{ posts }} </p>
-        <p><a href="blog/post_list_filter.html"> 'post_list_filtered as a Django Query Set' {{ post_list_filter }} </a></p>
+        <p><a href="blog/post_list_filter.html">
+          'post_list_filtered 'Django' as a Django Query Set' {{ post_list_filter }}
+        </a></p>
       </div>
 
       <div>
-        <h2><a href="blog/post_list_filter.html"> Posts filtered </a></h2>
+        <h2><a href="blog/post_list_filter.html">
+          Posts filtered 'Django' </a></h2>
       </div>
 
       <div class="post">
-        <h1><a href="">Posts as a list of blog titles and text </a></h1>
+        <h1><a href="">
+          Posts as a list of blog titles and text </a></h1>
         {% for post in posts %}
         <p><b> {{ post.title }} </b></p>
         <p> Author: {{ post.author }}
