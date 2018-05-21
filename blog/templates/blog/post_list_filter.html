@@ -1,5 +1,6 @@
 <!--
-# my first Django template as html file to list all posts
+# my first Django template
+as html file to list all posts
 # tutorial.djangogirls.org  'Introduction to HTML'
 # apla 15.04.2018 to render a filtered list apla 16.05.2018
 -->
@@ -14,29 +15,69 @@
       <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
       <!-- <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css"> -->
 
-
       <title> DjangoGirls Posts filtered </title>
     </head>
 
     <body>
-      <div class="page-header">
-        <h1> My Posts filtered - a reference to DjangoGirls Tutorial </h1>
+      <div class="content container">
+          <div class="row">
+              <div class="col-md-8">
+                  <div class="page-header">
+                      <h1><a href="/">
+                        My Posts filtered - a reference to DjangoGirls Tutorial
+                      </a></h1>
+                  </div>
+              </div>
+          </div>
       </div>
 
-      <div>
-        <h1><a href=""> Posts filtered as a simple Django QuerySet </a></h1>
-        <p> 'post_list_filter' {{ post_list_filter }} </p>
+      <div class="content container">
+          <div class="row">
+              <div class="col-md-8">
+                  <div>
+                      <h1><a href="">
+                        Posts filtered as a simple Django QuerySet
+                      </a></h1>
+                      <p> 'post_list_filter' {{ post_list_filter }} </p>
+                  </div>
+              </div>
+          </div>
       </div>
 
-      <div class="post">
-        <h1><a href=""> Posts 'filter contains 'Django'' as a list </a></h1>
-        {% for post2 in post_list_filter %}
-        <p><a href=""><b> Title: {{ post2.title }} </b></a></p>
-        <p>  Author: {{ post2.author }}
-             Created: {{ post2.created_date }}
-             Published: {{ post2.published_date }} </p>
-        <p> {{ post2.text}} </p>
-        {% endfor %}
+
+      <div class="content container">
+          <div class="row">
+                <div class="col-md-8">
+                    <div class="post">
+                        <h1><a href=""> Posts 'filter contains 'Django'' as a list </a></h1>
+                        {% for post2 in post_list_filter %}
+                        <p><a href=""><b> Title: {{ post2.title }} </b></a></p>
+                        <div class="date">
+                            <p>  Author: {{ post2.author }}
+                                 Created: {{ post2.created_date }}
+                                 Published: {{ post2.published_date }} </p>
+                            <p> {{ post2.text}} </p>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+          </div>
+      </div>
+
+      <div class="content container">
+          <div class="row">
+              <div class="col-md-8">
+                  {% for post in post_list_filter %}
+                      <div class="post">
+                          <div class="date">
+                              <p>created: {{ post.created_date }} published: {{ post.published_date }}</p>
+                          </div>
+                          <h1><a href="/post_list.html">{{ post.title }}</a></h1>
+                          <p>{{ post.text|linebreaksbr }}</p>
+                      </div>
+                  {% endfor %}
+              </div>
+          </div>
       </div>
 
     </body>

@@ -2,11 +2,29 @@
 # my first Django template as html file to list all posts
 # tutorial.djangogirls.org  'Introduction to HTML'
 # apla 15.04.2018  added links to post_list_filter.html website
-#apla 20.05.2018 changed to an extension of the base.html template
 -->
+{% load staticfiles %}
 
-{% extends 'blog/base.html' %}
-{% block content %}
+<html>
+    <head>
+      <link rel="stylesheet" href="{% static 'css/blog.css' %}"></link>
+
+      <!-- import Bootstrap as CSS framework
+      to improve the look and feel from CDN (content delivery network) -->
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+      <!-- <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css"> -->
+      <!-- <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css"> -->
+
+
+      <title> DjangoGirls Posts </title>
+    </head>
+
+    <body>
+      <div class="page-header">
+        <h1> My Posts - a reference to DjangoGirls Tutorial </h1>
+      </div>
+
       <div>
         <h1><a href=""> Posts as a simple Django QuerySet </a></h1>
         <p> All Post objects 'posts' {{ posts }} </p>
@@ -33,4 +51,6 @@
         {% endfor %}
       </div>
 
-{% endblock %}
+
+    </body>
+</html>
