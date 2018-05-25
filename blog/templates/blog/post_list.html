@@ -10,7 +10,9 @@
 
         <div>
             <h1>
-              <a href=""> My Posts </a>
+              <a href="">
+                My Posts
+              </a>
             </h1>
         </div>
 
@@ -18,11 +20,14 @@
           <div>
                {% for post in posts %}
                <!-- <a href="blog/post_detail.html"><b> {{ post.title }} </b></a>   -->
-               <a href="{% url 'post_detail' pk=post.pk %}"><b> {{ post.title }} </b></a>
+               <a href="{% url 'post_detail' pk=post.pk %}">
+                 <b> {{ post.title }} </b>
+               </a>
                <p> Erstellt von: {{ post.author }}
                    am: {{ post.created_date }}
                    Published am: {{ post.published_date }}
-                   postID: {{ post.id }} </p>
+                   postID: {{ post.id }}
+                 </p>
                    <!--  <p> {{ post.text }} </p>  -->
                {% endfor %}
             </div>

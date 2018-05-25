@@ -3,11 +3,33 @@
 as html file to list all posts
 # tutorial.djangogirls.org  'Introduction to HTML'
 # apla 15.04.2018 to render a filtered list apla 16.05.2018
-# changed to extension template 25.05.18 apla
 -->
+{% load staticfiles %}
 
-{% extends 'blog/base.html' %}
-{% block content %}
+<html>
+    <head>
+      <link rel="stylesheet" href="{% static 'css/blog.css' %}"></link>
+
+      <!-- import Bootstrap as CSS framework to improve the look and feel -->
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+      <!-- <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css"> -->
+
+      <title> My Posts filtered </title>
+    </head>
+
+    <body>
+      <div class="content container">
+          <div class="row">
+              <div class="col-md-8">
+                  <div class="page-header">
+                      <h1><a href="/">
+                        My Posts filtered - a reference to DjangoGirls Tutorial
+                      </a></h1>
+                  </div>
+              </div>
+          </div>
+      </div>
 
       <div class="content container">
           <div class="row">
@@ -21,6 +43,7 @@ as html file to list all posts
               </div>
           </div>
       </div>
+
 
       <div class="content container">
           <div class="row">
@@ -57,4 +80,5 @@ as html file to list all posts
           </div>
       </div>
 
-{% endblock %}
+    </body>
+</html>
