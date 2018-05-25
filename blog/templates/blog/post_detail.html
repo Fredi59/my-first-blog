@@ -1,0 +1,35 @@
+<!--
+# my first Django template as html file to list all posts
+# tutorial.djangogirls.org  'Introduction to HTML'
+# apla 15.04.2018  added links to post_list_filter.html website
+#apla 20.05.2018 changed to an extension of the base.html template
+-->
+
+{% extends 'blog/base.html' %}
+{% block content %}
+
+        <div>
+            <h1>
+              <a href="{% url 'post_list' %}">
+                  My Posts Details
+              </a>
+            </h1>
+          </div>
+
+           <div>
+               <a href="{% url 'post_list' %}">
+                 <b>
+                   {{ post.title }}
+                 </b>
+               </a>
+               <p> Erstellt von: {{ post.author }}
+                  am: {{ post.created_date }}
+                  Published am: {{ post.published_date }}
+                  ID: {{ post.id}}
+                </p>
+                <p>
+                  {{ post.text }}
+                </p>
+            </div>
+
+{% endblock %}

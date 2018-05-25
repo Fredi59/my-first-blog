@@ -7,30 +7,24 @@
 
 {% extends 'blog/base.html' %}
 {% block content %}
-      <div>
-        <h1><a href=""> Posts as a simple Django QuerySet </a></h1>
-        <p> All Post objects 'posts' {{ posts }} </p>
-        <p><a href="blog/post_list_filter.html">
-          'post_list_filtered 'Django' as a Django Query Set' {{ post_list_filter }}
-        </a></p>
-      </div>
 
-      <div>
-        <h2><a href="blog/post_list_filter.html">
-          Posts filtered 'Django' </a></h2>
-      </div>
+        <div>
+            <h1>
+              <a href=""> My Posts </a>
+            </h1>
+        </div>
 
-      <div class="post">
-        <h1><a href="">
-          Posts as a list of blog titles and text </a></h1>
-        {% for post in posts %}
-        <p><b> {{ post.title }} </b></p>
-        <p> Author: {{ post.author }}
-            Created: {{ post.created_date }}
-            Published: {{ post.published_date }} </p>
-        <!--  <h4> {{ post.text }} </h4>  -->
-        <p> {{ post.text }} </p>
-        {% endfor %}
-      </div>
+           <!-- <div class="post">  -->
+          <div>
+               {% for post in posts %}
+               <!-- <a href="blog/post_detail.html"><b> {{ post.title }} </b></a>   -->
+               <a href="{% url 'post_detail' pk=post.pk %}"><b> {{ post.title }} </b></a>
+               <p> Erstellt von: {{ post.author }}
+                   am: {{ post.created_date }}
+                   Published am: {{ post.published_date }}
+                   postID: {{ post.id }} </p>
+                   <!--  <p> {{ post.text }} </p>  -->
+               {% endfor %}
+            </div>
 
 {% endblock %}

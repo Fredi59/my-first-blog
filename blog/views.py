@@ -5,7 +5,7 @@
 # post_list returns a function render that will 'render' = put together
 # the Django template 'blog/post_list.html' a html website
 
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.utils import timezone
 from blog.models import Post
 from blog.models import Author
@@ -33,3 +33,10 @@ def post_list_filter(request):
     post_list_filter = Post.objects.filter(title__contains='Django')
     # context1 = {'post_list_filter_title': post_list_filter_title} # urls.py error 'no attribute'
     return render(request, 'blog/post_list_filter.html', {'post_list_filter': post_list_filter})
+
+# a post_list function filtering Post objects
+# based on DjangoGirls tutorial views 2.1.6 views apla 23.05.2018
+def post_detail(request, pk):
+    post = Post.objects.get(pk=pk)
+    # post = get_object_or_404(Post, pk=pk)
+    return render(request, 'blog/post_detail.html', {'post': post})
