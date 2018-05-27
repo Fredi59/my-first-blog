@@ -3,6 +3,7 @@
 as html file to list all posts
 # tutorial.djangogirls.org  'Introduction to HTML'
 # apla 15.04.2018 to render a filtered list apla 16.05.2018
+added a link to the new url 'post_new' apla 25.05.2018
 -->
 
 <!DOCTYPE html>
@@ -27,7 +28,12 @@ as html file to list all posts
           <div class="row">
               <div class="col-md-8">
                   <div class="page-header">
-                      <h1><a href="/"> My Blog Posts </a></h1>
+                    <a href="{% url 'post_new' %}" class="top-menu">
+                        create a new Post
+                      <span class="glyphicon-glyphicon-plus">
+                      </span>
+                    </a></h1>
+                      <h1><a href="/"> My Blog </a>
                   </div>
               </div>
           </div>

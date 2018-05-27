@@ -3,7 +3,8 @@
 
 from django.db import models
 from django.utils import timezone
-# from django.contrib import User
+# django 2.0 changed import of 'User' attribute
+from django.contrib.auth.models import User
 
 # my model Author - aded by apla 23.04.2018 to replace
 # the ForeignKey author powered by authors.User from the Djang manage.py

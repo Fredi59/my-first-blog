@@ -4,12 +4,16 @@
 # Create a python function, that takes request as parameter
 # post_list returns a function render that will 'render' = put together
 # the Django template 'blog/post_list.html' a html website
+# https://docs.djangoproject.com/en/2.0/topics/forms/ 26.05.18 apla
 
-from django.shortcuts import render, get_object_or_404
+from django.http import HttpResponseRedirect
+from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
 from blog.models import Post
 from blog.models import Author
 
+# use django forms apla 25.50.2018 import the PostForm class
+from .forms import PostForm  # ModuleNotFoundError  no module named blog.forms
 
 # Create your views here. 'Views' link models and templates together.
 
@@ -40,3 +44,21 @@ def post_detail(request, pk):
     post = Post.objects.get(pk=pk)
     # post = get_object_or_404(Post, pk=pk)
     return render(request, 'blog/post_detail.html', {'post': post})
+
+# added a callback function for the django new post form apla 25.05.18
+def post_new(request):
+    # save the new form using the POST method if the entries are valid
+    if request.method == "POST":
+        form = PostForm(request.POST)
+        if form.is_valid():
+            post = form.save(commit=False)
+            # post.author = Author.full_name  # added a third form attribute 'author' in forms.py
+            post.created_date = timezone.now()
+            post.published_date = timezone.now()
+            post.save()
+            return redirect('post_detail', pk=post.pk)
+
+    # if a GET (or any other method) will create a blank form
+    else:
+        form = PostForm()
+    return render(request, 'blog/post_edit.html', {'form': form})
