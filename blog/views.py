@@ -57,8 +57,25 @@ def post_new(request):
             post.published_date = timezone.now()
             post.save()
             return redirect('post_detail', pk=post.pk)
-
     # if a GET (or any other method) will create a blank form
     else:
         form = PostForm()
+    return render(request, 'blog/post_edit.html', {'form': form})
+
+# added a callback function for the django post edit form apla 27.05.18
+def post_edit(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    # save the new form using the POST method if the entries are valid
+    if request.method == "POST":
+        form = PostForm(request.POST, instance=post)
+        if form.is_valid():
+            post = form.save(commit=False)
+            # post.author = Author.full_name  # added a third form attribute 'author' in forms.py
+            post.created_date = timezone.now()
+            post.published_date = timezone.now()
+            post.save()
+            return redirect('post_detail', pk=post.pk)
+    # if a GET (or any other method) will create a blank form
+    else:
+        form = PostForm(instance=post)
     return render(request, 'blog/post_edit.html', {'form': form})

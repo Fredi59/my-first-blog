@@ -3,6 +3,7 @@
 # tutorial.djangogirls.org  'Introduction to HTML'
 # apla 15.04.2018  added links to post_list_filter.html website
 #apla 20.05.2018 changed to an extension of the base.html template
+# apla 27.05.18 added a 'edit' button tutorial.djangogirls.org 'Edit Form'
 -->
 
 {% extends 'blog/base.html' %}
@@ -20,10 +21,15 @@
                <a href="{% url 'post_list' %}">
                  <b> {{ post.title }} </b>
                </a>
-               <p> Erstellt von: {{ post.author }}
-                  am: {{ post.created_date }}
-                  Published am: {{ post.published_date }}
-                  ID: {{ post.id}}
+               <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}">
+                 <span class="glyphicon glyphicon-pencil">
+                   Edit Post
+                 </span>
+               </a>
+               <p> Written by: {{ post.author }}
+                  created: {{ post.created_date }}
+                  published: {{ post.published_date }}
+                  PostID: {{ post.id}}
                 </p>
                 <p>
                   {{ post.text }}
