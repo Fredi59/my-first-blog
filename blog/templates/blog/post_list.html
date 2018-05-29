@@ -23,10 +23,10 @@
                <a href="{% url 'post_detail' pk=post.pk %}">
                  <b> {{ post.title }} </b>
                </a>
-               <p> Erstellt von: {{ post.author }}
-                   am: {{ post.created_date }}
-                   Published am: {{ post.published_date }}
-                   postID: {{ post.id }}
+               <p> Author: {{ post.author }}
+                   Created: {{ post.created_date }}
+                   Published: {{ post.published_date }}
+                   PostID: {{ post.id }}
                  </p>
                    <!--  <p> {{ post.text }} </p>  -->
                {% endfor %}

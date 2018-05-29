@@ -38,7 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles',  # necessary for bootstrap as frontend
+    # necessary for bootstrap/css as frontend and for static files
+    # https://docs.djangoproject.com/en/2.0/howto/static-files/ apla 30.05.18
+    'django.contrib.staticfiles',
     'blog',     # added 'comma' after 'blog' apla 02.04.18
 ]
 
@@ -125,6 +127,6 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')   # apla 20.03.2018
 STATICFILES_DIR = [
     os.path.join(BASE_DIR, "static"),
-    "blog/static",
+    "blog/static/",
     # added 19.05.18 apla http://quora.com/is-it-easy-to-integrate-bootstrap-with-django
 ]

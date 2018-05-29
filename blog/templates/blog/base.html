@@ -1,12 +1,12 @@
 <!--
-# my first Django template
+my first Django template
 as html file to list all posts
-# tutorial.djangogirls.org  'Introduction to HTML'
-# apla 15.04.2018 to render a filtered list apla 16.05.2018
+tutorial.djangogirls.org  'Introduction to HTML'
+apla 15.04.2018 to render a filtered list apla 16.05.2018
 imported Twitter bootstrap from CDN to improve the look and feel of the template
 added a link to the new url 'post_new' apla 25.05.2018
 added a static image of the webshop of the djangoGirls to /blog/static/image/...
-# to the page-header apla 28.05.18 so much nicer ...
+to the page-header apla 28.05.18 so much nicer ...
 -->
 
 <!DOCTYPE html>
@@ -15,13 +15,20 @@ added a static image of the webshop of the djangoGirls to /blog/static/image/...
 
 <html lang="en" dir="ltr">
     <head>
+      <!--  starter template getbootstrap apla 29.05.2018 required meta tags  -->
       <meta charset="utf-8">
-      <link rel="stylesheet" href="{% static 'css/blog.css' %}"></link>
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-      <!-- import Twitter Bootstrap as CSS framework from CDN to improve the look and feel -->
-      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+      <!-- import Twitter Bootstrap as CSS framework from CDN to improve the look and feel
+      before all other stylesheets to load our CSS see getbootstrap/quick start  -->
+      <!-- <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">  -->
+      <!-- getbootstrap / css use BootstrapCDN apla 29.05.2018  -->
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+
       <!-- <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css"> -->
+
+      <link rel="stylesheet" href="{% static 'css/blog.css' %}"></link>
 
       <title> My Blog </title>
     </head>
@@ -51,6 +58,11 @@ added a static image of the webshop of the djangoGirls to /blog/static/image/...
                 </div>
             </div>
         </div>
+
+        <!-- bootstrap components need the use of JavaScript to function  apla 29.05.2018  -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
     </body>
 
 </html>

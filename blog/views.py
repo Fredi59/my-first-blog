@@ -54,7 +54,8 @@ def post_new(request):
             post = form.save(commit=False)
             # post.author = Author.full_name  # added a third form attribute 'author' in forms.py
             post.created_date = timezone.now()
-            post.published_date = timezone.now()
+            # outcommented the post.published line to avoid publishing apla 28.05.18
+            # post.published_date = timezone.now()
             post.save()
             return redirect('post_detail', pk=post.pk)
     # if a GET (or any other method) will create a blank form
@@ -72,7 +73,8 @@ def post_edit(request, pk):
             post = form.save(commit=False)
             # post.author = Author.full_name  # added a third form attribute 'author' in forms.py
             post.created_date = timezone.now()
-            post.published_date = timezone.now()
+            # outcommented the post.published line to avoid publishing apla 28.05.18
+            # post.published_date = timezone.now()
             post.save()
             return redirect('post_detail', pk=post.pk)
     # if a GET (or any other method) will create a blank form
