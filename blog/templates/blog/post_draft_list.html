@@ -10,30 +10,31 @@ Django Girls Tutorial Homework 'list unpublished posts'
 {% extends 'blog/base.html' %}
 {% block content %}
 
-        <div>
+          <div>
             <h1>
               <a href="/">
                 My unpublished Posts
               </a>
             </h1>
-        </div>
+          </div>
 
            <!-- <div class="post">  -->
           <div>
-               {% for post in posts %}
-               <!--    -->
-               <div>
-               <a href="{% url 'post_detail' pk=post.pk %}">
-                 <b> {{ post.title }} </b>
-               </a>
-               <p> Author: {{ post.author }}
-                   Created: {{ post.created_date }}
-                   Published: {{ post.published_date }}
-                   PostID: {{ post.id }}
-                 </p>
-               </div>
+              {% for post in posts %}
+                  <!--    -->
+                  <div>
+                      <!-- <a href="{% url 'post_detail' pk=post.pk %}">  -->
+                      <a href="{% url 'post_detail' pk=post.pk %}">
+                           <b> {{ post.title }} </b>
+                      </a>
+                      <p> Author: {{ post.author }}
+                          Created: {{ post.created_date }}
+                          Published: {{ post.published_date }}
+                          PostID: {{ post.id }}
+                      </p>
+                  </div>
 
-               {% endfor %}
-            </div>
+              {% endfor %}
+          </div>
 
 {% endblock %}
