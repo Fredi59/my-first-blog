@@ -29,6 +29,8 @@ urlpatterns = [
     url(r'^post/new/$', views.post_new, name='post_new'),
     # added a new url pattern to edit existing posts apla 27.05.18
     url(r'^post/(?P<pk>\d+)/edit/$', views.post_edit, name='post_edit'),
+    # added a new function 'post_draft_lists' apla 31.05.18
+    url(r'^/drafts/$', views.post_draft_list, name='post_draft_list'),
     # added a new views callback function apla 01.05.2018
     # changed regex r'^$' against ''  apla 15.05.2018
     url('', views.post_list_filter, name='post_list_filter'),

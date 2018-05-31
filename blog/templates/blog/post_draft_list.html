@@ -1,8 +1,10 @@
 <!--
-# my first Django template as html file to list all posts
-# tutorial.djangogirls.org  'Introduction to HTML'
-# apla 15.04.2018  added links to post_list_filter.html website
-#apla 20.05.2018 changed to an extension of the base.html template
+my first Django template as html file to list all posts
+tutorial.djangogirls.org  'Introduction to HTML'
+apla 15.04.2018  added links to post_list_filter.html website
+apla 20.05.2018 changed to an extension of the base.html template
+created template 31.05.18 apla
+Django Girls Tutorial Homework 'list unpublished posts'
 -->
 
 {% extends 'blog/base.html' %}
@@ -11,7 +13,7 @@
         <div>
             <h1>
               <a href="/">
-                My Posts
+                My unpublished Posts
               </a>
             </h1>
         </div>
@@ -19,8 +21,8 @@
            <!-- <div class="post">  -->
           <div>
                {% for post in posts %}
-
-               <!-- <a href="blog/post_detail.html"><b> {{ post.title }} </b></a>   -->
+               <!--    -->
+               <div>
                <a href="{% url 'post_detail' pk=post.pk %}">
                  <b> {{ post.title }} </b>
                </a>
@@ -29,7 +31,7 @@
                    Published: {{ post.published_date }}
                    PostID: {{ post.id }}
                  </p>
-                   <!--  <p> {{ post.text }} </p>  -->
+               </div>
 
                {% endfor %}
             </div>

@@ -20,7 +20,9 @@ from .forms import PostForm  # ModuleNotFoundError  no module named blog.forms
 def post_list(request):
     # posts = Post.objects.filter(published_date_lte=timezone.now().ordered_by('published_date'))
     # context = {}'posts': posts}  # use curled brackets
-    posts = Post.objects.all()
+    # posts = Post.objects.all()
+    # added a filter to view only published posts apla 31.05.18
+    posts = Post.objects.filter(published_date__isnull=False)
     return render(request, 'blog/post_list.html', {'posts': posts})
 
 # a post_list function retrieving all Post objects and storing results in a variable
@@ -81,3 +83,8 @@ def post_edit(request, pk):
     else:
         form = PostForm(instance=post)
     return render(request, 'blog/post_edit.html', {'form': form})
+
+# added a new view 'post_draft_list' to list all not published posts in a templates
+def post_draft_list(request):
+    posts = Post.objects.filter(published_date__isnull=True)
+    return render(request, 'blog/post_draft_list.html', {'posts': posts})

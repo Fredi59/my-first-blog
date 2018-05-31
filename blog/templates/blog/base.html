@@ -7,6 +7,7 @@ imported Twitter bootstrap from CDN to improve the look and feel of the template
 added a link to the new url 'post_new' apla 25.05.2018
 added a static image of the webshop of the djangoGirls to /blog/static/image/...
 to the page-header apla 28.05.18 so much nicer ...
+added new 'post_draft_list' link' apla 31.05.18 djangoGirls Tutorial Homework
 -->
 
 <!DOCTYPE html>
@@ -38,17 +39,29 @@ to the page-header apla 28.05.18 so much nicer ...
           <div class="row">
               <div class="col-md-8">
                   <div class="page-header">
+                    <h1>
+                      <a href="/"> My Blog </a>
+                    </h1>
+
                     <img src="{% static 'image/djangoGirls1a.jpg' %}" alt="Code like a Girl"></img>
-                    <a href="{% url 'post_new' %}" class="top-menu">
-                        create a new Post
-                      <span class="glyphicon-glyphicon-plus">
-                      </span>
-                    </a></h1>
-                      <h1><a href="/"> My Blog </a>
+
+                    <a href="{% url 'post_draft_list' %}" class="top-menu"> Unpublished
+                        <span class="glyphicon-glyphicon-plus">
+                        </span>
+                    </a>
+                    <a href="{% url 'post_new' %}" class="top-menu">Create a new Post
+                        <!-- <create a new Post  -->
+                        <span class="glyphicon-glyphicon-plus">
+                        </span>
+                    </a>
+
+
                   </div>
               </div>
           </div>
       </div>
+
+
 
         <div class="content container">
             <div class="row">

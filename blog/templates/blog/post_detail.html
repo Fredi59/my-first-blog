@@ -21,12 +21,11 @@
                <a href="{% url 'post_list' %}">
                  <b> {{ post.title }} </b>
                </a>
-               <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}">
+               <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}"> Edit Post
                  <span class="glyphicon glyphicon-pencil">
-                   Edit Post
                  </span>
                </a>
-               <p> Written by: {{ post.author }}
+               <p>Author: {{ post.author }}
                   created: {{ post.created_date }}
                   published: {{ post.published_date }}
                   PostID: {{ post.id}}
