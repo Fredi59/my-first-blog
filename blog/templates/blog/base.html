@@ -1,12 +1,12 @@
 <!--
-my first Django template
-as html file to list all posts
+my first Django template as html file to list all posts
 tutorial.djangogirls.org  'Introduction to HTML'
 apla 15.04.2018 to render a filtered list apla 16.05.2018
 imported Twitter bootstrap from CDN to improve the look and feel of the template
 added a link to the new url 'post_new' apla 25.05.2018
-added a static image of the webshop of the djangoGirls to /blog/static/image/...
+added a static image from the webshop of the djangoGirls to /blog/static/image/...
 to the page-header apla 28.05.18 so much nicer ...
+update the bootstrapCDN link to 4.1 apla 25.05.18
 added new 'post_draft_list' link' apla 31.05.18 djangoGirls Tutorial Homework
 -->
 
@@ -24,9 +24,9 @@ added new 'post_draft_list' link' apla 31.05.18 djangoGirls Tutorial Homework
       before all other stylesheets to load our CSS see getbootstrap/quick start  -->
       <!-- <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
       <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">  -->
-      <!-- getbootstrap / css use BootstrapCDN apla 29.05.2018  -->
+      <!-- getbootstrap / css use BootstrapCDN apla 29.05.2018 update to 4.1 -->
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
-
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap-theme.min.css">
       <!-- <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css"> -->
 
       <link rel="stylesheet" href="{% static 'css/blog.css' %}"></link>
@@ -35,7 +35,8 @@ added new 'post_draft_list' link' apla 31.05.18 djangoGirls Tutorial Homework
     </head>
 
     <body>
-      <div class="content container">
+      <!--  the page-header content goes here   -->
+      <div class="content container-fluid">
           <div class="row">
               <div class="col-md-8">
                   <div class="page-header">
@@ -43,26 +44,28 @@ added new 'post_draft_list' link' apla 31.05.18 djangoGirls Tutorial Homework
                       <a href="/"> My Blog </a>
                     </h1>
 
-                    <img src="{% static 'image/djangoGirls1a.jpg' %}" alt="Code like a Girl"></img>
-
-                    <a href="{% url 'post_draft_list' %}" class="top-menu"> Unpublished
+                    <p>
+                      <img src="{% static 'image/djangoGirls1a.jpg' %}" alt="Code like a Girl"></img>
+                    </p>
+                    <!--    list of unpblished posts --->
+                    <button><a href="{% url 'post_draft_list' %}" class="top-menu"> Unpublished
+                        <!--   <span class="glyphicon-glyphicon-plus">
+                        </span>  -->
+                    </a></button>
+                    <!-- <create a new Post  -->
+                    <button><a href="{% url 'post_new' %}" class="top-menu"> New Post
+                    <!--
                         <span class="glyphicon-glyphicon-plus">
-                        </span>
-                    </a>
-                    <a href="{% url 'post_new' %}" class="top-menu">Create a new Post
-                        <!-- <create a new Post  -->
-                        <span class="glyphicon-glyphicon-plus">
-                        </span>
-                    </a>
-
+                        </span>    -->
+                    </a></button>
 
                   </div>
               </div>
-          </div>
+        </div>
       </div>
 
 
-
+        <!--  add the content of the extension templates here  -->
         <div class="content container">
             <div class="row">
                 <div class="col-md-8">
@@ -72,7 +75,8 @@ added new 'post_draft_list' link' apla 31.05.18 djangoGirls Tutorial Homework
             </div>
         </div>
 
-        <!-- bootstrap components need the use of JavaScript to function  apla 29.05.2018  -->
+        <!-- place JS links at the ed of the body - some bootstrap components need JavaScript
+        https://getbootstrap.com/docs/4.1/getting-started/introduction/ apla 29.05.2018  -->
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
