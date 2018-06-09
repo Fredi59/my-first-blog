@@ -39,17 +39,19 @@
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
-h1, h2 {
+h1, h1 a {
   color: #FCA205; /* # 'orange red' if header1 and an anchored link */
   /* color: #0000FF; /* # 'dark blue' if header1  */
   font-family: 'Lobster';
+  font-size: 36px;
 }
 
 
-h1 a, h2 a {
+h2, h2 a {
   color: #FCA205; /* # 'orange red' if header1 and an anchored link */
   /* color: #0000FF; /* # 'dark blue' if header1  */
   font-family: 'Lobster';
+  font-size: 80%;
 }
 
 
@@ -61,6 +63,14 @@ body {
     padding-left: 15px;
 }
 
+
+img {
+  /* width: 100%;  /* make the image size responsive  https://www.w3schools.com/css/css_rwd_images.asp */
+  max-width: 200%;
+  height: auto;
+}
+
+
 .page-header {
     background-color: #ff9400;
     margin-top: 10px;
@@ -68,9 +78,8 @@ body {
     /*  padding: 20px 20px 20px 20px;  */
     padding-left: 20px;
     padding-right: 20px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    pa
+    padding-top: 10px;
+    padding-bottom: 60px;
     margin-left: 0px;  /* 40px apla 31.05.18 changed to 0px */
     font-size: 36px;  /* added apla 01.06.18 to make the font responsive */
 }
@@ -81,16 +90,17 @@ body {
     text-decoration: none;
 }
 
+.page-header h2, .page-header h2 a, .page-header h2 a:visited, .page-header h2 a:active {
+    color: #ffffff;
+    font-size: 80%;  /* added to make the font-size responsive apla 01.06.18 */
+    text-decoration: none;
+}
+
+
 .content {
     margin-left: 40px;
 }
 
-
-img {
-  /* width: 100%;  /* make the image size responsive  https://www.w3schools.com/css/css_rwd_images.asp */
-  max-width: 100%;
-  height: auto;
-}
 
 
 .date {
@@ -110,6 +120,8 @@ img {
     float: left;
     /* font-size: 50%;   /* make the font-size responsive apla 01.06.18 */
     margin-right: 20px;
+    margin-bottom: auto;
+    padding-bottom: 40px;
 }
 
 .post {
