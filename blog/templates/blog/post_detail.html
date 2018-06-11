@@ -10,41 +10,43 @@ apla 07.06.2018 added a if - endif to show the post.published_date
 {% extends 'blog/base.html' %}
 {% block content %}
 
-        <div>
-            <h1>
-              <a href="{% url 'post_list' %}">
-                  My Posts Details
-              </a>
-            </h1>
-          </div>
+  <div>
+    <h1>
+      <a href="{% url 'post_list' %}">
+          My Posts Details
+      </a>
+    </h1>
+  </div>
 
+   <div>
+     <a href="{% url 'post_list' %}">
+     <b> {{ post.title }} </b>
+    </a>
+     <!--    add an edit button to edit Posts -->
+       <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}">
+         Edit
+         <span class="glyphicon glyphicon-pencil"></span>
+       </a>
+
+     <!-- added a if -endif to show the post.published_date only if there is one -->
+        {% if post.published_date %}
            <div>
-               <a href="{% url 'post_list' %}">
-                 <b> {{ post.title }} </b>
-               </a>
-               <!--    add an edit button to edit Posts -->
-               <!-- <button>  -->
-                 <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}">
-                 Edit
-                 <span class="glyphicon glyphicon-pencil"></span>
-                 </a>
-               <!--   </button>  -->
+             published: {{ post.published_date }}
+           </div>
+      <!-- else show a 'publish button'  apla 11.06.18 refer to a url '/publish'  -->
+           {% else %}
+         <a class="btn btn-default" href={% url 'post_publish' pk=post.pk %}>
+           Publish <span class="glyphicon glyphicon-envelope"></span>
+         </a>
+        {% endif %}
 
-               <!-- added a if -endif to show the post.published_date only if there is one -->
-               {% if post.published_date %}
-                 <div>
-                   published: {{ post.published_date }}
-                 </div>
-                {% endif %}
-
-               <p>Author: {{ post.author }}
-                  created: {{ post.created_date }}
-
-                  PostID: {{ post.id}}
-                </p>
-                <p>
-                  {{ post.text }}
-                </p>
-            </div>
+         <p>Author: {{ post.author }}
+            created: {{ post.created_date }}
+            PostID: {{ post.id}}
+          </p>
+          <p>
+          {{ post.text }}
+          </p>
+    </div>
 
 {% endblock %}

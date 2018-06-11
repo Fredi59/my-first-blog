@@ -68,6 +68,7 @@ img {
   /* width: 100%;  /* make the image size responsive  https://www.w3schools.com/css/css_rwd_images.asp */
   max-width: 200%;
   height: auto;
+  padding-left: 30px;
 }
 
 
@@ -77,9 +78,9 @@ img {
     margin-bottom: auto;
     /*  padding: 20px 20px 20px 20px;  */
     padding-left: 20px;
-    padding-right: 20px;
+    padding-right: 10px;
     padding-top: 10px;
-    padding-bottom: 60px;
+    padding-bottom: 80px;
     margin-left: 0px;  /* 40px apla 31.05.18 changed to 0px */
     font-size: 36px;  /* added apla 01.06.18 to make the font responsive */
 }
@@ -100,7 +101,6 @@ img {
 .content {
     margin-left: 40px;
 }
-
 
 
 .date {

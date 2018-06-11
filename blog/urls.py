@@ -32,7 +32,11 @@ urlpatterns = [
     # added a new function 'post_draft_lists' apla 31.05.18
     url(r'^drafts/$', views.post_draft_list, name='post_draft_list'),
     # added a new views callback function apla 01.05.2018
+    
+    # added a new url pattern to publish a new post apla 11.06.18 call a new view function
+    url(r'^post/(?P<pk>\d+)/publish/$', views.post_publish, name='post_publish'),
     # changed regex r'^$' against ''  apla 15.05.2018
     url('', views.post_list_filter, name='post_list_filter'),
-    url(r'^$', views.post_list_all, name='post_list_all'),
+    # ...
+    # url(r'^$', views.post_list_all, name='post_list_all'),
 ]

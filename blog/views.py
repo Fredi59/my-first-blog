@@ -88,3 +88,11 @@ def post_edit(request, pk):
 def post_draft_list(request):
     posts = Post.objects.filter(published_date__isnull=True)
     return render(request, 'blog/post_draft_list.html', {'posts': posts})
+
+# a new post publish function
+# based on DjangoGirls tutorial 'add more to your website' apla 11.06.2018
+def post_publish(request, pk):
+    post = Post.objects.get(pk=pk)
+    # post = get_object_or_404(Post, pk=pk)
+    post.publish()
+    return redirect('post_detail', pk=pk)
