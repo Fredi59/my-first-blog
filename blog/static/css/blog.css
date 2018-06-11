@@ -66,9 +66,9 @@ body {
 
 img {
   /* width: 100%;  /* make the image size responsive  https://www.w3schools.com/css/css_rwd_images.asp */
-  max-width: 200%;
+  max-width: 100%;
   height: auto;
-  padding-left: 30px;
+  padding-left: 10px;
 }
 
 
