@@ -49,16 +49,14 @@ added new 'post_draft_list' link' apla 31.05.18 djangoGirls Tutorial Homework
                     <div>
                       <img src="{% static 'image/djangoGirls2a.jpg' %}" alt="Code like a Girl"></img>
                     </div>
-                    <!--    list of unpblished posts --->
-                    <h2><a href="{% url 'post_draft_list' %}" class="top-menu"> Unpublished
-                        <span class="glyphicon-glyphicon-plus">
-                        </span>
-                    </a></h2>
-                    <!-- <create a new Post  -->
-                    <h2><a href="{% url 'post_new' %}" class="top-menu"> New Post
 
-                        <span class="glyphicon-glyphicon-plus">
-                        </span>
+                    <!-- link to a list of unpublished posts added bootstrap glyphicon --->
+                    <h2><a href="{% url 'post_draft_list' %}"> Unpublished Posts
+                        <span class="glyphicon-glyphicon-glyhpicon-plus"></span>
+                    </a></h2>
+                    <!-- create a new Post link  -->
+                    <h2><a href="{% url 'post_new' %}" class="top-menu"> A New Post
+                        <span class="glyphicon-glyphicon-plus"></span>
                     </a></h2>
 
                   </div>

@@ -1,9 +1,9 @@
 <!--
-# my first Django template as html file to list all posts
-# tutorial.djangogirls.org  'Introduction to HTML'
-# apla 15.04.2018  added links to post_list_filter.html website
-#apla 20.05.2018 changed to an extension of the base.html template
-# apla 27.05.18 added a 'edit' button tutorial.djangogirls.org 'Edit Form'
+my first Django template as html file to list all posts
+tutorial.djangogirls.org  'Introduction to HTML'
+apla 15.04.2018  added links to post_list_filter.html website
+apla 20.05.2018 changed to an extension of the base.html template
+apla 27.05.18 added a 'edit' button tutorial.djangogirls.org 'Edit Form'
 apla 07.06.2018 added a if - endif to show the post.published_date
 -->
 
@@ -20,33 +20,40 @@ apla 07.06.2018 added a if - endif to show the post.published_date
 
    <div>
      <a href="{% url 'post_list' %}">
-     <b> {{ post.title }} </b>
-    </a>
-     <!--    add an edit button to edit Posts -->
+        <b> {{ post.title }} </b>
+     </a>
+     <!-- an 'edit button' to edit Post Details apla 27.05.2018 -->
        <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}">
-         Edit
-         <span class="glyphicon glyphicon-pencil"></span>
+          Edit
+         <span class="glyphicon glyphicon-wrench"></span>
+       </a>
+
+      <!-- 'delete post' button to remove a post apla 12.06.2018  -->
+       <a class="btn btn-default" href="{% url 'post_remove' pk=post.pk %}">
+          Delete
+          <span class="glyphicon glyphicon-remove"></span>
        </a>
 
      <!-- added a if -endif to show the post.published_date only if there is one -->
-        {% if post.published_date %}
-           <div>
-             published: {{ post.published_date }}
-           </div>
+     {% if post.published_date %}
+         <div class="post">
+          Published: {{ post.published_date }}
+         </div>
       <!-- else show a 'publish button'  apla 11.06.18 refer to a url '/publish'  -->
-           {% else %}
-         <a class="btn btn-default" href={% url 'post_publish' pk=post.pk %}>
+     {% else %}
+        <a class="btn btn-default" href={% url 'post_publish' pk=post.pk %}>
            Publish <span class="glyphicon glyphicon-envelope"></span>
-         </a>
-        {% endif %}
+        </a>
+     {% endif %}
 
-         <p>Author: {{ post.author }}
-            created: {{ post.created_date }}
-            PostID: {{ post.id}}
-          </p>
-          <p>
+       <p>
+         Author: {{ post.author }}
+         Created: {{ post.created_date }}
+         PostID: {{ post.id}}
+       </p>
+       <p class="post_text">
           {{ post.text }}
-          </p>
+        </p>
     </div>
 
 {% endblock %}

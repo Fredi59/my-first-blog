@@ -96,3 +96,12 @@ def post_publish(request, pk):
     # post = get_object_or_404(Post, pk=pk)
     post.publish()
     return redirect('post_detail', pk=pk)
+
+
+# a new post publish function
+# based on DjangoGirls tutorial 'add more to your website' apla 12.06.2018
+def post_remove(request, pk):
+    post = Post.objects.get(pk=pk)
+    # post = get_object_or_404(Post, pk=pk)
+    post.delete()
+    return redirect('post_list')
